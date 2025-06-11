@@ -1,0 +1,28 @@
+@font-face {
+  src: url("../../vendor/fonts/CabinetGrotesk-Medium.otf") format("opentype");
+  font-family: "CabinetGrotesk-Medium";
+  font-style: normal;
+}
+
+.footer {
+  display: flex;
+  justify-content: space-between;
+  margin-top: auto;
+  padding: 24px 0;
+}
+
+.footer__developer {
+  margin: 0;
+  font-family: "CabinetGrotesk-Medium", Arial, Helvetica, sans-serif;
+  font-size: 16px;
+  line-height: 1.25;
+  font-weight: 500;
+}
+
+.footer__year {
+  margin: 0;
+  font-family: "CabinetGrotesk-Medium", Arial, Helvetica, sans-serif;
+  font-size: 16px;
+  line-height: 1.25;
+  font-weight: 500;
+}
