@@ -1,13 +1,20 @@
 @font-face {
-  src: url("../../vendor/fonts/CabinetGrotesk-Regular.otf") format("opentype");
-  font-family: "cabinet-grotesk";
+  src: url("../../vendor/fonts/CabinetGrotesk-Bold.otf") format("opentype");
+  font-family: "CabinetGrotesk-Bold";
+  font-style: normal;
+}
+
+@font-face {
+  src: url("../../vendor/fonts/CabinetGrotesk-Medium.otf") format("opentype");
+  font-family: "CabinetGrotesk-Medium";
+  font-style: normal;
 }
 
 .page {
   min-height: 100vh;
   background-color: #f3f3f3;
   color: #000;
-  font-family: "cabinet-grotesk", Arial, Helvetica, sans-serif;
+  font-family: "CabinetGrotesk-Bold", Arial, Helvetica, sans-serif;
   font-size: 20px;
   line-height: 1;
   font-weight: 700;
