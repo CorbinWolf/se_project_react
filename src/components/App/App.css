@@ -1,2 +1,20 @@
-app {
+@font-face {
+  src: url("../../vendor/fonts/CabinetGrotesk-Regular.otf") format("opentype");
+  font-family: "cabinet-grotesk";
+}
+
+.page {
+  min-height: 100vh;
+  background-color: #f3f3f3;
+  color: #000;
+  font-family: "cabinet-grotesk", Arial, Helvetica, sans-serif;
+  font-size: 20px;
+  line-height: 1;
+  font-weight: 700;
+}
+
+.page__content {
+  max-width: 1360px;
+  margin: 0 auto;
+  padding: 0 40px;
 }
