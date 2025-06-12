@@ -1,0 +1,32 @@
+.modal__content_type_preview {
+  padding: unset;
+  overflow: hidden;
+}
+
+.modal__close-btn_type_preview {
+  top: 24px;
+  right: 24px;
+  background-image: url(../../assets/preview-modal-close-btn.svg);
+}
+
+.modal__close-btn_type_preview:hover {
+  background-image: url(../../assets/modal-close-btn.svg);
+}
+
+.modal__image {
+  width: 100%;
+}
+
+.modal__footer {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 20px 32px 32px;
+}
+
+.modal__info {
+  margin: 0;
+  font-size: 20px;
+  line-height: 1.2;
+  font-weight: 700;
+}
