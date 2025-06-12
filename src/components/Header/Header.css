@@ -27,6 +27,10 @@
   transition: 0.5s ease-in-out;
 }
 
+.header__add-clothes-btn:hover {
+  color: #00000099;
+}
+
 .header__user-container {
   display: flex;
   align-items: center;

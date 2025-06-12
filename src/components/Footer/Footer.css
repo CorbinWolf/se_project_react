@@ -1,9 +1,3 @@
-@font-face {
-  src: url("../../vendor/fonts/CabinetGrotesk-Medium.otf") format("opentype");
-  font-family: "CabinetGrotesk-Medium";
-  font-style: normal;
-}
-
 .footer {
   display: flex;
   justify-content: space-between;

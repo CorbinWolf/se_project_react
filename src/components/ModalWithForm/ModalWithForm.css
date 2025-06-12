@@ -1,0 +1,132 @@
+.modal {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #0000004d;
+  opacity: 0;
+  transition: visibility 0s ease-in-out 0.5s, opacity 0.5s ease-in-out;
+  visibility: hidden;
+}
+
+.modal_opened {
+  opacity: 1;
+  transition-delay: 0s;
+  visibility: visible;
+}
+
+.modal__content {
+  position: relative;
+  max-width: 496px;
+  width: 100%;
+  padding: 28px 28px 36px;
+  border: 1px solid #0000004d;
+  border-radius: 20px;
+  box-sizing: border-box;
+  background-color: #fff;
+}
+
+.modal__title {
+  margin: 0;
+  font-size: 16px;
+  line-height: 1.25;
+  font-weight: 700;
+}
+
+.modal__close-btn {
+  position: absolute;
+  top: 20px;
+  right: 28px;
+  height: 20px;
+  width: 20px;
+  border: none;
+  cursor: pointer;
+  background-color: transparent;
+  background-image: url(../../assets/modal-close-btn.svg);
+  background-position: center;
+  background-repeat: no-repeat;
+  transition: 0.5s ease-in-out;
+}
+
+.modal__close-btn:hover {
+  opacity: 0.5;
+}
+
+.modal__form {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  margin-top: 24px;
+}
+
+.modal__label {
+  font-size: 16px;
+  line-height: 1.25;
+  font-weight: 700;
+}
+
+.modal__label_type_radio {
+  display: flex;
+  gap: 8px;
+  transition: 0.5s ease-in-out;
+}
+
+.modal__label_type_radio:hover {
+  opacity: 0.5;
+}
+
+.modal__input {
+  width: 100%;
+  padding: 8px 0 4px;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  border-bottom: 1px solid;
+  transition: 0.5s ease-in-out;
+}
+
+.modal__input:hover {
+  border-bottom: 1px solid #0000004d;
+}
+
+.modal__radio-btns {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 0;
+  border: none;
+}
+
+.modal__legend {
+  margin-bottom: 12px;
+  font-size: 16px;
+  line-height: 1.25;
+  font-weight: 700;
+}
+
+.modal__radio-input {
+  cursor: pointer;
+}
+
+.modal__submit-btn {
+  width: 124px;
+  padding: 8px 16px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  background-color: #000;
+  color: #fff;
+  font-size: 16px;
+  line-height: 1.25;
+  font-weight: 700;
+  transition: 0.5s ease-in-out;
+}
+
+.modal__submit-btn:hover {
+  background-color: #00000099;
+}
