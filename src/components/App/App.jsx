@@ -2,7 +2,11 @@ import { useEffect, useState } from "react";
 
 import "./App.css";
 import { getWeather, filterWeatherData } from "../../utils/weatherApi";
-import { coordinates, APIkey } from "../../utils/constants";
+import {
+  defaultClothingItems,
+  coordinates,
+  APIkey,
+} from "../../utils/constants";
 import Header from "../Header/Header";
 import Main from "../Main/Main";
 import Footer from "../Footer/Footer";
@@ -15,6 +19,7 @@ function App() {
     temp: { F: 999 },
     city: "",
   });
+  const [clothingItems, setClothingItems] = useState(defaultClothingItems);
   const [activeModal, setActiveModal] = useState("");
   const [selectedCard, setSelectedCard] = useState({});
 
@@ -44,7 +49,11 @@ function App() {
     <div className="page">
       <div className="page__content">
         <Header handleAddClick={handleAddClick} weatherData={weatherData} />
-        <Main handleCardClick={handleCardClick} weatherData={weatherData} />
+        <Main
+          handleCardClick={handleCardClick}
+          weatherData={weatherData}
+          clothingItems={clothingItems}
+        />
         <Footer />
       </div>
       <ModalWithForm
