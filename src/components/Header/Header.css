@@ -31,6 +31,11 @@
   color: #00000099;
 }
 
+.header__link {
+  color: #000;
+  text-decoration: none;
+}
+
 .header__user-container {
   display: flex;
   align-items: center;
