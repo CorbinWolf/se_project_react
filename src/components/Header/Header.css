@@ -43,3 +43,8 @@
   line-height: 1;
   font-weight: 700;
 }
+
+.header__avatar {
+  height: 40px;
+  width: 40px;
+}

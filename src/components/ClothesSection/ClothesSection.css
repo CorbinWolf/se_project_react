@@ -1,0 +1,41 @@
+.clothessection {
+}
+
+.clothessection__header {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  height: 56px;
+}
+
+.clothessection__title {
+  margin: 0;
+  font-size: 20px;
+  line-height: 1;
+  font-weight: 700;
+}
+
+.clothessection__add-clothes-btn {
+  padding: 0;
+  border: none;
+  cursor: pointer;
+  background-color: transparent;
+  color: #00000099;
+  font-size: 20px;
+  line-height: 1;
+  font-weight: 700;
+  transition: 0.5s ease-in-out;
+}
+
+.clothessection__add-clothes-btn:hover {
+  color: #000;
+}
+
+.clothessection__list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+}
