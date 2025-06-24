@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { Routes, Route } from "react-router-dom";
 
 import "./App.css";
 import { getWeather, filterWeatherData } from "../../utils/weatherApi";
@@ -10,6 +11,7 @@ import {
 import CurrentTempUnitContext from "../../contexts/CurrentTempUnitContext";
 import Header from "../Header/Header";
 import Main from "../Main/Main";
+import Profile from "../Profile/Profile";
 import Footer from "../Footer/Footer";
 import AddItemModal from "../AddItemModal/AddItemModal";
 import ItemModal from "../ItemModal/ItemModal";
@@ -69,11 +71,19 @@ function App() {
       <div className="page">
         <div className="page__content">
           <Header handleAddClick={handleAddClick} weatherData={weatherData} />
-          <Main
-            handleCardClick={handleCardClick}
-            weatherData={weatherData}
-            clothingItems={clothingItems}
-          />
+          <Routes>
+            <Route
+              path="/"
+              element={
+                <Main
+                  handleCardClick={handleCardClick}
+                  weatherData={weatherData}
+                  clothingItems={clothingItems}
+                />
+              }
+            />
+            <Route path="/profile" element={<Profile />} />
+          </Routes>
           <Footer />
         </div>
         <AddItemModal
