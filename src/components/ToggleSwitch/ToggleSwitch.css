@@ -6,6 +6,11 @@
   border: 2px solid #7e7e7e;
   border-radius: 20px;
   box-sizing: border-box;
+  transition: 0.5s ease-in-out;
+}
+
+.toggle-switch:hover {
+  border: 2px solid #000;
 }
 
 .toggle-switch__checkbox {
@@ -19,6 +24,11 @@
   width: 28px;
   border-radius: 20px;
   background-color: #000;
+  transition: 0.25s ease-in-out;
+}
+
+.toggle-switch__circle_alt {
+  left: 26px;
 }
 
 .toggle-switch__container {
@@ -36,7 +46,7 @@
   font-size: 14px;
   line-height: 1;
   font-weight: 700;
-  transition: 0.5s ease-in-out;
+  transition: 0.25s ease-in-out;
 }
 
 .toggle-switch__text_active {
