@@ -9,8 +9,9 @@ function ToggleSwitch() {
   );
 
   return (
-    <label className="toggle-switch">
+    <label htmlFor="toggle-switch" className="toggle-switch">
       <input
+        id="toggle-switch"
         type="checkbox"
         className="toggle-switch__checkbox"
         onChange={handleToggleSwitchChange}
