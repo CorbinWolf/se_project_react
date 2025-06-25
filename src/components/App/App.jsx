@@ -118,6 +118,7 @@ function App() {
               element={
                 <Profile
                   handleCardClick={handleCardClick}
+                  handleAddClick={handleAddClick}
                   weatherData={weatherData}
                   clothingItems={clothingItems}
                 />
