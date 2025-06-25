@@ -2,10 +2,13 @@ import { useEffect, useState } from "react";
 import { Routes, Route } from "react-router-dom";
 
 import "./App.css";
+
+import CurrentTempUnitContext from "../../contexts/CurrentTempUnitContext";
+
 import { getWeather, filterWeatherData } from "../../utils/weatherApi";
 import { coordinates, APIkey } from "../../utils/constants";
-import CurrentTempUnitContext from "../../contexts/CurrentTempUnitContext";
-import Api from "../../utils/Api.js";
+import { getInitialCards, addCard, removeCard } from "../../utils/api.js";
+
 import Header from "../Header/Header";
 import Main from "../Main/Main";
 import Profile from "../Profile/Profile";
@@ -13,13 +16,6 @@ import Footer from "../Footer/Footer";
 import AddItemModal from "../AddItemModal/AddItemModal";
 import RemoveItemModal from "../RemoveItemModal/RemoveItemModal.jsx";
 import ItemModal from "../ItemModal/ItemModal";
-
-const api = new Api({
-  baseUrl: "http://localhost:3001",
-  headers: {
-    "Content-Type": "application/json",
-  },
-});
 
 function App() {
   const [weatherData, setWeatherData] = useState({
@@ -58,24 +54,27 @@ function App() {
   const handleAddItemModalSubmit = ({ name, weather, imageUrl }) => {
     const _id = "";
 
-    setClothingItems([
-      ...clothingItems,
-      api.addCard({ _id, name, weather, imageUrl }),
-    ]);
-    renderCards();
-    closeModal();
+    addCard({ _id, name, weather, imageUrl })
+      .then((newItem) => {
+        setClothingItems([newItem, ...clothingItems]);
+        closeModal();
+      })
+      .catch(console.error);
   };
 
   const handleRemoveItemModalSubmit = () => {
-    api.removeCard(selectedCard);
-    setClothingItems([...clothingItems]);
-    renderCards();
-    closeModal();
+    removeCard(selectedCard)
+      .then(() => {
+        setClothingItems(
+          clothingItems.filter((item) => item._id !== selectedCard._id)
+        );
+        closeModal();
+      })
+      .catch(console.error);
   };
 
   const renderCards = () => {
-    api
-      .getInitialCards()
+    getInitialCards()
       .then((data) => {
         setClothingItems(data);
       })
@@ -94,6 +93,22 @@ function App() {
   useEffect(() => {
     renderCards();
   }, []);
+
+  useEffect(() => {
+    if (!activeModal) return;
+
+    const handleEscClose = (e) => {
+      if (e.key === "Escape") {
+        handleCloseModal();
+      }
+    };
+
+    document.addEventListener("keydown", handleEscClose);
+
+    return () => {
+      document.removeEventListener("keydown", handleEscClose);
+    };
+  }, [activeModal]);
 
   return (
     <CurrentTempUnitContext.Provider
@@ -128,7 +143,7 @@ function App() {
           <Footer />
         </div>
         <AddItemModal
-          activeModal={activeModal}
+          isOpen={activeModal === "add-garment"}
           handleClose={closeModal}
           onAddItemModalSubmit={handleAddItemModalSubmit}
         />

@@ -27,7 +27,7 @@ export const weatherCards = [
   },
   {
     day: true,
-    condition: "thunderstorm",
+    condition: "storm",
     url: new URL("../assets/day/thunderstorm.png", import.meta.url).href,
   },
   {
@@ -57,7 +57,7 @@ export const weatherCards = [
   },
   {
     day: false,
-    condition: "thunderstorm",
+    condition: "storm",
     url: new URL("../assets/night/thunderstorm.png", import.meta.url).href,
   },
   {
@@ -78,3 +78,8 @@ export const coordinates = {
 };
 
 export const APIkey = "1b2bb757b7ed7cb315881fb031d577bb";
+
+export const baseUrl = "http://localhost:3001";
+export const headers = {
+  "Content-Type": "application/json",
+};
