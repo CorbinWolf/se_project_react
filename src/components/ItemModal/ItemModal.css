@@ -19,9 +19,16 @@
 
 .modal__footer {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
+  justify-content: space-between;
   gap: 12px;
   padding: 20px 32px 32px;
+}
+
+.modal__container {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
 }
 
 .modal__info {
@@ -29,4 +36,24 @@
   font-size: 20px;
   line-height: 1.2;
   font-weight: 700;
+}
+
+.modal__btn {
+  align-self: flex-start;
+  padding: 0;
+  border: none;
+  cursor: pointer;
+  background-color: transparent;
+  font-size: 20px;
+  line-height: 1.2;
+  font-weight: 700;
+  transition: 0.5s ease-in-out;
+}
+
+.modal__btn_type_remove {
+  color: #ff4d00;
+}
+
+.modal__btn_type_remove:hover {
+  color: #f00;
 }

@@ -101,6 +101,24 @@
       "name": "T-Shirt",
       "weather": "hot",
       "imageUrl": "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/wtwr-project/T-Shirt.png?etag=44ed1963c44ab19cd2f5011522c5fc09"
+    },
+    {
+      "_id": 18,
+      "name": "aa",
+      "weather": "warm",
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/b/b6/Image_created_with_a_mobile_phone.png"
+    },
+    {
+      "_id": 19,
+      "name": "aa",
+      "weather": "hot",
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/b/b6/Image_created_with_a_mobile_phone.png"
+    },
+    {
+      "_id": 20,
+      "name": "aa",
+      "weather": "cold",
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/b/b6/Image_created_with_a_mobile_phone.png"
     }
   ]
 }

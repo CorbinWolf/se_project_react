@@ -1,0 +1,37 @@
+.modal__content_type_delete {
+  max-width: 670px;
+  padding: 60px 140px;
+}
+
+.modal__close-btn_type_delete {
+  right: 20px;
+}
+
+.modal__info_type_delete {
+  text-align: center;
+  font-size: 20px;
+  line-height: 1.2;
+  font-weight: 700;
+}
+
+.modal__container_type_delete {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  margin-top: 40px;
+}
+
+.modal__btn_type_delete {
+  padding: 0;
+  border: none;
+  cursor: pointer;
+  background-color: transparent;
+  font-size: 20px;
+  line-height: 1.2;
+  font-weight: 700;
+  transition: 0.5s ease-in-out;
+}
+
+.modal__btn:hover {
+  color: #0000004d;
+}
