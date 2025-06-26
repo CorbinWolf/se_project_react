@@ -4,7 +4,7 @@ const request = (url, options) => {
   return fetch(`${baseUrl}${url}`, options).then(checkResponse);
 };
 
-const checkResponse = (res) => {
+export const checkResponse = (res) => {
   return res.ok ? res.json() : Promise.reject(`Error: ${res.status}`);
 };
 
@@ -12,7 +12,7 @@ export const getInitialCards = () => {
   return request("/items", { headers: headers });
 };
 
-export const addCard = ({ _id, name, imageUrl, weather }) => {
+export const addCard = ({ name, imageUrl, weather }) => {
   return request("/items", {
     method: "POST",
     headers: headers,

@@ -52,9 +52,7 @@ function App() {
   };
 
   const handleAddItemModalSubmit = ({ name, weather, imageUrl }) => {
-    const _id = "";
-
-    addCard({ _id, name, weather, imageUrl })
+    addCard({ name, weather, imageUrl })
       .then((newItem) => {
         setClothingItems([newItem, ...clothingItems]);
         closeModal();
@@ -63,7 +61,7 @@ function App() {
   };
 
   const handleRemoveItemModalSubmit = () => {
-    removeCard(selectedCard)
+    removeCard(selectedCard._id)
       .then(() => {
         setClothingItems(
           clothingItems.filter((item) => item._id !== selectedCard._id)
