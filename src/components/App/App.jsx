@@ -97,7 +97,7 @@ function App() {
 
     const handleEscClose = (e) => {
       if (e.key === "Escape") {
-        handleCloseModal();
+        closeModal();
       }
     };
 

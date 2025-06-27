@@ -17,7 +17,6 @@ export const addCard = ({ name, imageUrl, weather }) => {
     method: "POST",
     headers: headers,
     body: JSON.stringify({
-      _id,
       name,
       weather,
       imageUrl,
@@ -25,8 +24,8 @@ export const addCard = ({ name, imageUrl, weather }) => {
   });
 };
 
-export const removeCard = (selectedCard) => {
-  return request(`/items/${selectedCard._id}`, {
+export const removeCard = (_id) => {
+  return request(`/items/${_id}`, {
     method: "DELETE",
     headers: headers,
   });
