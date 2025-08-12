@@ -20,3 +20,9 @@ This is a Vite and React project utilizing JSX components and OpenWeather API.
 This project is deployed on GitHub Pages:
 
 - [CLICK HERE](https://corbinwolf.github.io/se_project_react/)!
+
+## Backend
+
+You can access the backend through this link:
+
+- [CLICK HERE](https://github.com/CorbinWolf/se_project_express)!
