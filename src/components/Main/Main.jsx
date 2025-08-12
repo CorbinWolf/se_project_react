@@ -1,12 +1,16 @@
 import { useContext } from "react";
 
-import "./Main.css";
 import CurrentTempUnitContext from "../../contexts/CurrentTempUnitContext";
+import GeneralUIContext from "../../contexts/GeneralUIContext";
+
 import WeatherCard from "../WeatherCard/WeatherCard";
 import ItemCard from "../ItemCard/ItemCard";
 
-function Main({ handleCardClick, weatherData, clothingItems }) {
-  const { currentTempUnit } = useContext(CurrentTempUnitContext);
+import "./Main.css";
+
+function Main() {
+  const { currentTempUnit, weatherData } = useContext(CurrentTempUnitContext);
+  const { clothingItems, handleCardClick } = useContext(GeneralUIContext);
 
   return (
     <main>
@@ -20,6 +24,9 @@ function Main({ handleCardClick, weatherData, clothingItems }) {
           {clothingItems
             .filter((item) => {
               return item.weather === weatherData.type;
+            })
+            .sort((item, prevItem) => {
+              return new Date(prevItem.createdAt) - new Date(item.createdAt);
             })
             .map((item) => {
               return (

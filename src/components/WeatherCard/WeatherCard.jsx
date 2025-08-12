@@ -1,8 +1,9 @@
 import { useContext } from "react";
 
-import "./WeatherCard.css";
-import { defaultWeatherCards, weatherCards } from "../../utils/constants";
 import CurrentTempUnitContext from "../../contexts/CurrentTempUnitContext";
+import { defaultWeatherCards, weatherCards } from "../../utils/constants";
+
+import "./WeatherCard.css";
 
 function WeatherCard({ weatherData }) {
   const { currentTempUnit } = useContext(CurrentTempUnitContext);

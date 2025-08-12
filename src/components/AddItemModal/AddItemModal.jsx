@@ -1,9 +1,15 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
 
-import "./AddItemModal.css";
+import GeneralUIContext from "../../contexts/GeneralUIContext";
+
 import ModalWithForm from "../ModalWithForm/ModalWithForm";
 
-function AddItemModal({ isOpen, handleClose, onAddItemModalSubmit }) {
+import "./AddItemModal.css";
+
+function AddItemModal() {
+  const { activeModal, manageActiveModal, handleAddItemModalSubmit } =
+    useContext(GeneralUIContext);
+
   const [name, setName] = useState("");
   const [imageUrl, setImageUrl] = useState("");
   const [weather, setWeather] = useState("");
@@ -14,7 +20,7 @@ function AddItemModal({ isOpen, handleClose, onAddItemModalSubmit }) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    onAddItemModalSubmit({ name, imageUrl, weather });
+    handleAddItemModalSubmit({ name, imageUrl, weather });
     setName("");
     setImageUrl("");
     setWeather("");
@@ -24,8 +30,8 @@ function AddItemModal({ isOpen, handleClose, onAddItemModalSubmit }) {
     <ModalWithForm
       title="New garment"
       btnText="Add garment"
-      isOpen={isOpen}
-      onClose={handleClose}
+      isOpen={activeModal === "add-garment"}
+      onClose={() => manageActiveModal("")}
       onSubmit={handleSubmit}
     >
       <label htmlFor="name" className="modal__label">
@@ -42,10 +48,10 @@ function AddItemModal({ isOpen, handleClose, onAddItemModalSubmit }) {
           value={name}
         />
       </label>
-      <label htmlFor="imageUrl" className="modal__label">
+      <label htmlFor="image-url" className="modal__label">
         Image{" "}
         <input
-          id="imageUrl"
+          id="image-url"
           type="url"
           className="modal__input"
           placeholder="Image URL"

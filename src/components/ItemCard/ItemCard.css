@@ -7,9 +7,16 @@
   overflow: hidden;
 }
 
-.card__name {
+.card__header {
   position: absolute;
   top: 15px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 10px;
+}
+
+.card__name {
   margin: 0;
   padding: 2px 12px;
   border-radius: 4px;
@@ -18,6 +25,15 @@
   font-size: 16px;
   line-height: 1.25;
   font-weight: 700;
+}
+
+.card__like {
+  height: 15px;
+  width: 18px;
+  box-sizing: border-box;
+  cursor: pointer;
+  background-position: center;
+  background-repeat: no-repeat;
 }
 
 .card__image {

@@ -8,6 +8,18 @@ function ModalWithForm({
   onClose,
   onSubmit,
 }) {
+  const btnSorter = children.reduce(
+    (accumulator, child) => {
+      if (child.type === "button") {
+        accumulator.btnChildren.push(child);
+      } else {
+        accumulator.inputChildren.push(child);
+      }
+      return accumulator;
+    },
+    { inputChildren: [], btnChildren: [] }
+  );
+
   return (
     <div className={`modal${isOpen ? " modal_opened" : ""}`}>
       <div className="modal__content">
@@ -18,10 +30,13 @@ function ModalWithForm({
           className="modal__close-btn"
         ></button>
         <form className="modal__form" onSubmit={onSubmit}>
-          {children}
-          <button type="submit" className="modal__submit-btn">
-            {btnText}
-          </button>
+          {btnSorter.inputChildren}
+          <div className="modal__buttons">
+            <button type="submit" className="modal__submit-btn">
+              {btnText}
+            </button>
+            {btnSorter.btnChildren}
+          </div>
         </form>
       </div>
     </div>

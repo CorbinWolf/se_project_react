@@ -7,6 +7,7 @@
   display: flex;
   align-items: center;
   gap: 16px;
+  margin-bottom: 24px;
 }
 
 .sidebar__avatar {
@@ -19,4 +20,26 @@
   font-size: 20px;
   line-height: 1;
   font-weight: 700;
+}
+
+.sidebar__btns {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 8px;
+}
+
+.sidebar__btn {
+  padding: 0;
+  border: none;
+  cursor: pointer;
+  background-color: transparent;
+  font-size: 20px;
+  line-height: 1.2;
+  font-weight: 700;
+  transition: 0.5s ease-in-out;
+}
+
+.sidebar__btn:hover {
+  color: #00000099;
 }

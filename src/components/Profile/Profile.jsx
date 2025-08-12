@@ -1,22 +1,13 @@
 import ClothesSection from "../ClothesSection/ClothesSection";
 import SideBar from "../SideBar/SideBar";
+
 import "./Profile.css";
 
-function Profile({
-  handleCardClick,
-  handleAddClick,
-  weatherData,
-  clothingItems,
-}) {
+function Profile() {
   return (
     <div className="profile">
       <SideBar />
-      <ClothesSection
-        handleCardClick={handleCardClick}
-        onAddClick={handleAddClick}
-        weatherData={weatherData}
-        clothingItems={clothingItems}
-      />
+      <ClothesSection />
     </div>
   );
 }
