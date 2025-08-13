@@ -77,7 +77,7 @@ export const coordinates = {
   longitude: -122.20208,
 };
 
-export const APIkey = "1b2bb757b7ed7cb315881fb031d577bb";
+export const apiKey = "1b2bb757b7ed7cb315881fb031d577bb";
 
 export const baseUrl = "http://localhost:3001";
 export const headers = {

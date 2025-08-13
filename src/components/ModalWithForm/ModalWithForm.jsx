@@ -8,7 +8,7 @@ function ModalWithForm({
   onClose,
   onSubmit,
 }) {
-  const btnSorter = children.reduce(
+  const sortChildren = children.reduce(
     (accumulator, child) => {
       if (child.type === "button") {
         accumulator.btnChildren.push(child);
@@ -30,12 +30,12 @@ function ModalWithForm({
           className="modal__close-btn"
         ></button>
         <form className="modal__form" onSubmit={onSubmit}>
-          {btnSorter.inputChildren}
+          {sortChildren.inputChildren}
           <div className="modal__buttons">
             <button type="submit" className="modal__submit-btn">
               {btnText}
             </button>
-            {btnSorter.btnChildren}
+            {sortChildren.btnChildren}
           </div>
         </form>
       </div>

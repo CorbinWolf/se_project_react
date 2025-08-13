@@ -1,33 +1,19 @@
-import { useState, useContext } from "react";
+import { useContext } from "react";
 
 import likeHollow from "../../assets/like-hollow.svg";
 import likeSolid from "../../assets/like-solid.svg";
 import CurrentUserContext from "../../contexts/CurrentUserContext";
-import { addLike, removeLike } from "../../utils/api";
 
 import "./ItemCard.css";
 
 function ItemCard({ item, onCardClick }) {
-  const { currentUser, isLoggedIn } = useContext(CurrentUserContext);
+  const { currentUser, isLoggedIn, handleIsLiked } =
+    useContext(CurrentUserContext);
 
-  const [isLiked, setIsLiked] = useState(item?.likes.includes(currentUser._id));
+  const isLiked = item?.likes.includes(currentUser._id);
 
   const handleCardClick = () => {
     onCardClick(item);
-  };
-
-  const handleIsLiked = () => {
-    !isLiked
-      ? addLike(item._id, currentUser)
-          .then(() => {
-            setIsLiked(true);
-          })
-          .catch(console.error)
-      : removeLike(item._id, currentUser)
-          .then(() => {
-            setIsLiked(false);
-          })
-          .catch(console.error);
   };
 
   return (
@@ -38,7 +24,7 @@ function ItemCard({ item, onCardClick }) {
           <img
             src={isLiked ? likeSolid : likeHollow}
             alt="Like button"
-            onClick={handleIsLiked}
+            onClick={() => handleIsLiked({ item })}
             className="card__like"
           />
         ) : (

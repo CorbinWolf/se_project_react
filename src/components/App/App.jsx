@@ -8,11 +8,13 @@ import {
   getInitialCards,
   addCard,
   removeCard,
+  addLike,
+  removeLike,
   getUserData,
   updateUserInfo,
 } from "../../utils/api";
 import { signup, signin, tokenCheck } from "../../utils/auth";
-import { coordinates, APIkey } from "../../utils/constants";
+import { coordinates, apiKey } from "../../utils/constants";
 import { getWeather, filterWeatherData } from "../../utils/weatherApi";
 
 import Header from "../Header/Header";
@@ -43,6 +45,7 @@ function App() {
   const [currentTempUnit, setCurrentTempUnit] = useState("F");
   const [currentUser, setCurrentUser] = useState("");
   const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [isTokenChecked, setIsTokenChecked] = useState(false);
 
   const navigate = useNavigate();
 
@@ -81,7 +84,7 @@ function App() {
 
   const handleRegisterModalSubmit = ({ email, password, name, avatar }) => {
     signup(email, password, name, avatar)
-      .then((data) => {
+      .then(() => {
         handleLoginModalSubmit({ email, password });
       })
       .catch(console.error);
@@ -93,7 +96,36 @@ function App() {
         setCurrentUser(res);
         manageActiveModal("");
       })
-      .catch((error) => console.log(error));
+      .catch(console.error);
+  };
+
+  const handleIsLiked = ({ item }) => {
+    !item.likes.includes(currentUser._id)
+      ? addLike(item._id, currentUser)
+          .then(() => {
+            changeIsLikedLogic(item, true);
+          })
+          .catch(console.error)
+      : removeLike(item._id, currentUser)
+          .then(() => {
+            changeIsLikedLogic(item, false);
+          })
+          .catch(console.error);
+  };
+
+  const changeIsLikedLogic = (item, isAddLike) => {
+    setClothingItems(
+      clothingItems.map((currentItem) => {
+        return currentItem._id === item._id
+          ? {
+              ...currentItem,
+              likes: isAddLike
+                ? [...currentItem.likes, currentUser._id]
+                : currentItem.likes.filter((user) => user !== currentUser._id),
+            }
+          : currentItem;
+      })
+    );
   };
 
   const handleAddItemModalSubmit = ({ name, imageUrl, weather }) => {
@@ -128,6 +160,7 @@ function App() {
           setIsLoggedIn(false);
         });
     }
+    setIsTokenChecked(true);
   };
 
   const renderCards = () => {
@@ -139,7 +172,7 @@ function App() {
   };
 
   useEffect(() => {
-    getWeather(coordinates, APIkey)
+    getWeather(coordinates, apiKey)
       .then((data) => {
         const filteredData = filterWeatherData(data);
         setWeatherData(filteredData);
@@ -187,9 +220,11 @@ function App() {
         value={{
           currentUser,
           isLoggedIn,
+          isTokenChecked,
           handleLoginModalSubmit,
           handleRegisterModalSubmit,
           handleEditProfileSubmit,
+          handleIsLiked,
           handleSignOutClick,
         }}
       >
