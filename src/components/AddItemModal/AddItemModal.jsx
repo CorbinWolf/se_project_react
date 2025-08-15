@@ -1,4 +1,4 @@
-import { useState, useContext } from "react";
+import { useContext, useState, useEffect } from "react";
 
 import GeneralUIContext from "../../contexts/GeneralUIContext";
 
@@ -21,10 +21,13 @@ function AddItemModal() {
   const handleSubmit = (e) => {
     e.preventDefault();
     handleAddItemModalSubmit({ name, imageUrl, weather });
+  };
+
+  useEffect(() => {
     setName("");
     setImageUrl("");
     setWeather("");
-  };
+  }, [isOpen]);
 
   return (
     <ModalWithForm
