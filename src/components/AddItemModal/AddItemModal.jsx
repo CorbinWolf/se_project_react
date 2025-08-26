@@ -27,7 +27,7 @@ function AddItemModal() {
     setName("");
     setImageUrl("");
     setWeather("");
-  }, [isOpen]);
+  }, [activeModal]);
 
   return (
     <ModalWithForm
