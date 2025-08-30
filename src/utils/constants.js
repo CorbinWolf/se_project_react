@@ -79,7 +79,10 @@ export const coordinates = {
 
 export const apiKey = "1b2bb757b7ed7cb315881fb031d577bb";
 
-export const baseUrl = "http://localhost:3001";
+export const baseUrl =
+  process.env.NODE_ENV === "production"
+    ? "https://api.wtwr.glacialpower.com"
+    : "http://localhost:3001";
 export const headers = {
   "Content-Type": "application/json",
 };
