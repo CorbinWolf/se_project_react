@@ -17,9 +17,9 @@ This is a Vite and React project utilizing JSX components and OpenWeather API.
 
 ## Deployment
 
-This project is deployed on GitHub Pages:
+This project is deployed on Google Cloud:
 
-- [CLICK HERE](https://corbinwolf.github.io/se_project_react/)!
+- [CLICK HERE](https://wtwr.glacialpower.com/)!
 
 ## Backend
 
