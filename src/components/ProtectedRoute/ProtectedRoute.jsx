@@ -2,13 +2,11 @@ import { useContext } from "react";
 import { Navigate, useLocation } from "react-router-dom";
 
 import CurrentUserContext from "../../contexts/CurrentUserContext";
-import GeneralUIContext from "../../contexts/GeneralUIContext";
 
 import "./ProtectedRoute.css";
 
 function ProtectedRoute({ children, anonymous = false }) {
   const { isLoggedIn, isTokenChecked } = useContext(CurrentUserContext);
-  const { activeModal } = useContext(GeneralUIContext);
 
   const location = useLocation();
   const from = location.state?.from || "/";
